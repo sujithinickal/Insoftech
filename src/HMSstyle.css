@@ -1,0 +1,723 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --HMS-primary: #003d5c;
+    --HMS-primary-light: #005a87;
+    --HMS-primary-dark: #002438;
+    --HMS-accent: #0080c7;
+    --HMS-accent-light: #1a9dd9;
+    --HMS-neutral-dark: #1a1a1a;
+    --HMS-neutral-light: #f5f5f5;
+    --HMS-text: #333333;
+    --HMS-text-light: #666666;
+    --HMS-white: #ffffff;
+    --HMS-border: #e0e0e0;
+    --HMS-shadow: 0 4px 12px rgba(0, 61, 92, 0.1);
+    --HMS-shadow-hover: 0 8px 24px rgba(0, 61, 92, 0.15);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--HMS-text);
+    background-color: var(--HMS-white);
+    line-height: 1.6;
+}
+
+/* Container */
+.HMS-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation Bar */
+.HMS-navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--HMS-white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.HMS-nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.HMS-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--HMS-primary);
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.HMS-logo:hover {
+    transform: translateY(-2px);
+}
+
+.HMS-logo-img {
+    height: 45px;
+    width: auto;
+}
+
+.HMS-brand-text {
+    background: linear-gradient(135deg, var(--HMS-primary) 0%, var(--HMS-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.HMS-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.HMS-nav-link {
+    color: var(--HMS-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.HMS-nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, var(--HMS-primary), var(--HMS-accent));
+    transition: width 0.3s ease;
+}
+
+.HMS-nav-link:hover::after {
+    width: 100%;
+}
+
+.HMS-btn-contact {
+    background: linear-gradient(135deg, var(--HMS-primary), var(--HMS-accent));
+    color: var(--HMS-white) !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.HMS-btn-contact:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--HMS-shadow);
+}
+
+.HMS-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.HMS-menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--HMS-primary);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.HMS-hero {
+    background: linear-gradient(135deg, var(--HMS-primary) 0%, var(--HMS-primary-light) 100%);
+    color: var(--HMS-white);
+    padding: 120px 20px;
+    text-align: center;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.HMS-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(26, 157, 217, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.HMS-hero-content {
+    max-width: 800px;
+    z-index: 1;
+    animation: fadeInUp 0.8s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.HMS-hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.HMS-hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+.HMS-hero-description {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+    line-height: 1.8;
+}
+
+/* Button Styles */
+.HMS-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.HMS-btn-primary {
+    background: linear-gradient(135deg, var(--HMS-accent), var(--HMS-accent-light));
+    color: var(--HMS-white);
+    box-shadow: 0 4px 12px rgba(26, 157, 217, 0.3);
+}
+
+.HMS-btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(26, 157, 217, 0.4);
+}
+
+/* Section Styles */
+.HMS-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--HMS-primary);
+    margin-bottom: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.HMS-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, var(--HMS-primary), var(--HMS-accent));
+    border-radius: 2px;
+}
+
+/* About Section */
+.HMS-about {
+    padding: 100px 20px;
+    background-color: var(--HMS-neutral-light);
+}
+
+.HMS-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.HMS-about-subtitle {
+    font-size: 1.8rem;
+    color: var(--HMS-primary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.HMS-about-text {
+    font-size: 1.05rem;
+    color: var(--HMS-text-light);
+    margin-bottom: 30px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.HMS-mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.HMS-card {
+    background: var(--HMS-white);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--HMS-shadow);
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--HMS-accent);
+}
+
+.HMS-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--HMS-shadow-hover);
+}
+
+.HMS-card-title {
+    font-size: 1.2rem;
+    color: var(--HMS-primary);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.HMS-card-text {
+    font-size: 0.95rem;
+    color: var(--HMS-text-light);
+    line-height: 1.7;
+}
+
+.HMS-about-image {
+    display: flex;
+    justify-content: center;
+}
+
+.HMS-company-logo {
+    max-width: 100%;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Services Section */
+.HMS-services {
+    padding: 100px 20px;
+    background-color: var(--HMS-white);
+}
+
+.HMS-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.HMS-service-card {
+    background: var(--HMS-white);
+    padding: 35px 25px;
+    border-radius: 12px;
+    box-shadow: var(--HMS-shadow);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid var(--HMS-border);
+    position: relative;
+    overflow: hidden;
+}
+
+.HMS-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--HMS-primary), var(--HMS-accent));
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: left;
+}
+
+.HMS-service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.HMS-service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--HMS-shadow-hover);
+}
+
+.HMS-service-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.HMS-service-card:hover .HMS-service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.HMS-service-title {
+    font-size: 1.3rem;
+    color: var(--HMS-primary);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.HMS-service-description {
+    font-size: 0.95rem;
+    color: var(--HMS-text-light);
+    line-height: 1.7;
+}
+
+/* Contact Section */
+.HMS-contact {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, var(--HMS-primary-dark) 0%, var(--HMS-primary) 100%);
+    color: var(--HMS-white);
+}
+
+.HMS-contact-title {
+    color: var(--HMS-white) !important;
+}
+
+.HMS-contact-title::after {
+    background: linear-gradient(135deg, var(--HMS-accent), var(--HMS-accent-light)) !important;
+}
+
+.HMS-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+}
+
+.HMS-contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.HMS-contact-heading {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+.HMS-contact-item {
+    margin-bottom: 25px;
+}
+
+.HMS-contact-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--HMS-accent-light);
+}
+
+.HMS-contact-link {
+    color: var(--HMS-white);
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
+}
+
+.HMS-contact-link:hover {
+    color: var(--HMS-accent-light);
+}
+
+.HMS-contact-value {
+    font-size: 1.05rem;
+    margin: 0;
+}
+
+/* Contact Form */
+.HMS-contact-form {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.HMS-form-group {
+    margin-bottom: 25px;
+}
+
+.HMS-form-label {
+    display: block;
+    color: var(--HMS-primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.HMS-form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--HMS-border);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    color: var(--HMS-text);
+}
+
+.HMS-form-input:focus {
+    outline: none;
+    border-color: var(--HMS-accent);
+    box-shadow: 0 0 0 3px rgba(26, 157, 217, 0.1);
+}
+
+.HMS-form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.HMS-form-submit {
+    width: 100%;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.HMS-form-message {
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: 6px;
+    text-align: center;
+    display: none;
+    font-weight: 500;
+}
+
+.HMS-form-message.success {
+    display: block;
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.HMS-form-message.error {
+    display: block;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Footer */
+.HMS-footer {
+    background-color: var(--HMS-primary-dark);
+    color: var(--HMS-white);
+    padding: 50px 20px 20px;
+}
+
+.HMS-footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.HMS-footer-section h4 {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+.HMS-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--HMS-accent-light);
+}
+
+.HMS-footer-logo-img {
+    height: 35px;
+    width: auto;
+}
+
+.HMS-footer-text {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+.HMS-footer-title {
+    color: var(--HMS-accent-light);
+    font-weight: 600;
+}
+
+.HMS-footer-links {
+    list-style: none;
+}
+
+.HMS-footer-links li {
+    margin-bottom: 12px;
+}
+
+.HMS-footer-links a {
+    color: var(--HMS-white);
+    text-decoration: none;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.HMS-footer-links a:hover {
+    color: var(--HMS-accent-light);
+    transform: translateX(4px);
+}
+
+.HMS-footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    text-align: center;
+    opacity: 0.8;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .HMS-nav-links {
+        position: fixed;
+        left: 0;
+        top: 70px;
+        width: 100%;
+        flex-direction: column;
+        background-color: var(--HMS-white);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        gap: 0;
+        padding: 0;
+        box-shadow: var(--HMS-shadow);
+    }
+
+    .HMS-nav-links.active {
+        max-height: 400px;
+        padding: 20px;
+        gap: 15px;
+    }
+
+    .HMS-menu-toggle {
+        display: flex;
+    }
+
+    .HMS-hero-title {
+        font-size: 2.2rem;
+    }
+
+    .HMS-hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .HMS-hero {
+        padding: 80px 20px;
+        min-height: 400px;
+    }
+
+    .HMS-about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .HMS-mission-vision {
+        grid-template-columns: 1fr;
+    }
+
+    .HMS-contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .HMS-contact-form {
+        padding: 30px 20px;
+    }
+
+    .HMS-section-title {
+        font-size: 2rem;
+    }
+
+    .HMS-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .HMS-about, .HMS-services, .HMS-contact {
+        padding: 60px 20px;
+    }
+
+    .HMS-footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .HMS-about-text {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .HMS-hero-title {
+        font-size: 1.8rem;
+    }
+
+    .HMS-hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .HMS-section-title {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+    }
+
+    .HMS-nav-container {
+        height: 60px;
+    }
+
+    .HMS-logo-img {
+        height: 35px;
+    }
+
+    .HMS-service-card {
+        padding: 25px 15px;
+    }
+
+    .HMS-service-icon {
+        font-size: 2.5rem;
+    }
+}
